@@ -3,89 +3,10 @@
 #include<string.h>
 #include<iomanip>
 #include<iostream>
-
+#include"item.h"
 
 using namespace std;
 
-class item
-{ 
-	int item_number, item_stock;
-	char item_name[50], item_info[50], market_name[50];
-	float item_price, item_quantity, item_weight, item_discount, money;
-
-public:
-
-	void create_item()
-	{
-		cout << endl << "Please Enter The item Number: ";
-		cin >> item_number;
-		cout << endl << "Please Enter The Name of The item: ";
-		cin.ignore();
-		cin.getline(item_name, 50);
-		cout << endl << "Please Enter Quantity of The item: ";
-		cin >> item_quantity;
-		cout << endl << "Please Enter The Price of The item: ";
-		cin >> item_price;
-		cout << endl << "Please Enter The Weight of The item: ";
-		cin >> item_weight;
-		cout << endl << "Please Enter Description of The item: ";
-		cin.ignore();
-		cin.getline(item_info, 50);
-		cout << endl << "Please Enter The Discount (%): ";
-		cin >> item_discount;
-	}
-
-	void show_item()
-	{
-		cout << endl << "No" << "Name" << "Quantity" << "Price" << "Weight" << "Info";
-		cout << endl << item_number << ":" << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info << ":" << item_discount;
-	}
-	void create_market()
-	{
-		cout << "Enter market's name" << endl;
-		cin >> market_name;
-		cout << "Enter market's money" << endl;
-		cin >> money;
-	}
-
-	void show_marketinfo()
-	{
-		cout << endl << "Market Name" << "Amount of item" << "Money own";
-		cout << endl << market_name << ":" << item_stock << ":" << money << ":";
-	}
-
-	int getitem()
-	{
-		return item_number;
-	}
-
-	int getQuantity() {
-		return item_quantity;
-	}
-
-	float getPrice()
-	{
-		return item_price;
-	}
-
-	char* getName()
-	{
-		return item_name;
-	}
-
-	float getDiscount()
-	{
-		return item_discount;
-	}
-
-	float getWeight() {
-		return item_weight;
-	}
-
-	char* getInfo() {
-		return item_info;
-	}
-};
 
 
 
