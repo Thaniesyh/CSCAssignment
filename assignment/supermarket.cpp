@@ -6,7 +6,7 @@
 using namespace std;
 
 void supermarket::save_item() {
-	fp.open("itemstorage.txt", ios::out | ios::app);
+	fp.open("Stock.txt", ios::out | ios::app);
 	produc.create_item();
 	fp.write((char*)&produc, sizeof(item));
 	fp.close();
@@ -19,7 +19,7 @@ void supermarket::show_all_item()
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
 	cout << endl << "\t\tRECORDS.";
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-	fp.open("itemstorage.txt", ios::in);
+	fp.open("Stock.txt", ios::in);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
 		produc.show_item();
@@ -31,7 +31,7 @@ void supermarket::show_all_item()
 void supermarket::display_record(int num)
 {
 	bool found = false;
-	fp.open("itemstorage.txt", ios::in);
+	fp.open("Stock.txt", ios::in);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
 		if (produc.getitem() == num)
@@ -55,7 +55,7 @@ void supermarket::edit_item()
 	cout << endl << endl << "\tPlease Enter The item #: ";
 	cin >> num;
 
-	fp.open("itemstorage.txt", ios::in | ios::out);
+	fp.open("Stock.txt", ios::in | ios::out);
 	while (fp.read((char*)&produc, sizeof(item)) && found == false)
 	{
 		if (produc.getitem() == num)
@@ -81,7 +81,7 @@ void supermarket::delete_item()
 	system("cls");
 	cout << endl << endl << "Please Enter The item #: ";
 	cin >> num;
-	fp.open("itemstorage.txt", ios::in | ios::out);
+	fp.open("Stock.txt", ios::in | ios::out);
 	fstream fp2;
 	fp2.open("Temp.dat", ios::out);
 	fp.seekg(0, ios::beg);
@@ -94,15 +94,15 @@ void supermarket::delete_item()
 	}
 	fp2.close();
 	fp.close();
-	remove("itemstorage.txt");
-	rename("Temp.dat", "itemstorage.txt");
+	remove("Stock.txt");
+	rename("Temp.dat", "Stock.txt");
 	cout << endl << endl << "\tRecord Deleted...";
 	getchar();
 }
 void supermarket::item_menu()
 {
 	system("cls");
-	fp.open("itemstorage.txt", ios::in);
+	fp.open("Stock.txt", ios::in);
 
 	cout << endl << endl << "\t\titem MENU\n\n";
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
@@ -140,7 +140,7 @@ void supermarket::place_order()
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
 	for (int x = 0; x <= c; x++)
 	{
-		fp.open("itemstorage.txt", ios::in);
+		fp.open("Stock.txt", ios::in);
 		fp.read((char*)&produc, sizeof(item));
 		while (!fp.eof())
 		{
