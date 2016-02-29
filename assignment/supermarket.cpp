@@ -13,7 +13,7 @@ void supermarket::save_item() {
 	cout << endl << endl << "The item Has Been Sucessfully Created...";
 	getchar();
 }
-void supermarket::how_all_item()
+void supermarket::show_all_item()
 {
 	system("cls");
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
@@ -206,5 +206,4 @@ void supermarket::admin_menu()
 
 	default:admin_menu();
 	}
-  }
-};
+ }

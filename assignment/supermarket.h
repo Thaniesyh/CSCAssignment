@@ -7,8 +7,7 @@ class supermarket{
 
 	fstream fp;
 	item produc;
-
-
+public:
 	void save_item();
 	void show_all_item();
 	void display_record(int num);
