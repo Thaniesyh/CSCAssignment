@@ -18,21 +18,9 @@ public:
 	int getitem();
 	int getQuantity();
 	float getPrice();
-	string getName()
-	{
-		return item_name;
-	}
-
-	float getDiscount()
-	{
-		return item_discount;
-	}
-
-	float getWeight() {
-		return item_weight;
-	}
-
-	string getInfo() {
-		return item_info;
-	}
+	string getName();
+	float getDiscount();
+	float getWeight();
+	string getInfo();
+	
 };

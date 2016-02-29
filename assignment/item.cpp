@@ -55,3 +55,20 @@ int item::getQuantity() {
 float item::getPrice(){
 	return item_price;
 }
+string item::getName()
+{
+	return item_name;
+}
+float item::getDiscount()
+{
+	return item_discount;
+}
+float item::getWeight() 
+{
+	return item_weight;
+}
+string item::getInfo()
+{
+	return item_info;
+}
+};
