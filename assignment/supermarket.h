@@ -18,6 +18,4 @@ class supermarket{
 	void place_order();
 	void market_items();
 	void admin_menu();
-	
-	}
 };
