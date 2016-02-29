@@ -4,12 +4,14 @@
 #include<iomanip>
 #include<iostream>
 #include"item.h"
-
+#include"supermarket.h"
 using namespace std;
+
 
 
 int main(int argc, char *argv[])
 {
+	supermarket store;
 	system("cls");
 	system("color 05");
 	cout << "\t\t\t\t*\t*";
@@ -43,11 +45,11 @@ int main(int argc, char *argv[])
 		switch (option)
 		{
 		case 1: system("cls");
-			place_order();
+			store.place_order();
 			getchar();
 			break;
 
-		case 2: admin_menu();
+		case 2: store.admin_menu();
 			break;
 
 		case 3:

@@ -7,7 +7,7 @@ class supermarket{
 
 	fstream fp;
 	item produc;
-
+public:
 
 	void save_item();
 	void show_all_item();
@@ -18,6 +18,4 @@ class supermarket{
 	void place_order();
 	void market_items();
 	void admin_menu();
-	
-	}
 };
