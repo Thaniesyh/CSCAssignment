@@ -71,4 +71,3 @@ string item::getInfo()
 {
 	return item_info;
 }
-};
