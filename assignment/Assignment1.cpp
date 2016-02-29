@@ -8,7 +8,7 @@
 using namespace std;
 
 class item
-{
+{ 
 	int item_number, item_stock;
 	char item_name[50], item_info[50], market_name[50];
 	float item_price, item_quantity, item_weight, item_discount, money;
