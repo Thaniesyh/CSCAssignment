@@ -32,18 +32,6 @@ void item::show_item(){
 	cout << endl << item_number << ":" << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info << ":" << item_discount;
 }
 
-void item::create_market() {
-	cout << "Enter market's name" << endl;
-	cin >> market_name;
-	cout << "Enter market's money" << endl;
-	cin >> money;
-}
-
-void item::show_marketinfo(){
-	cout << endl << "Market Name" << "Amount of item" << "Money own";
-	cout << endl << market_name << ":" << item_stock << ":" << money << ":";
-}
-
 int item::getitem() {
 	return item_number;
 }
@@ -70,4 +58,23 @@ float item::getWeight()
 string item::getInfo()
 {
 	return item_info;
+}
+
+void item::setInfo(string s) {
+	item_info = s;
+}
+void item::setitem(int i) {
+	item_number = i;
+}
+void item::setName(string s) {
+	item_name = s;
+}
+void item::setPrice(float f) {
+	item_price = f;
+}
+void item::setQuanitity(float f) {
+	item_quantity = f;
+}
+void item::setWeight(float f) {
+	item_weight = f;
 }

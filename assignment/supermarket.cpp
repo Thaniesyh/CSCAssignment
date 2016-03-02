@@ -7,7 +7,7 @@ using namespace std;
 
 void supermarket::save_item() {
 	fp.open("Stock.txt", ios::out | ios::app);
-	produc.create_item();
+	produc[1].create_item();
 	fp.write((char*)&produc, sizeof(item));
 	fp.close();
 	cout << endl << endl << "The item Has Been Sucessfully Created...";
@@ -19,14 +19,10 @@ void supermarket::show_all_item()
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
 	cout << endl << "\t\tRECORDS.";
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-	fp.open("Stock.txt", ios::in);
-	while (fp.read((char*)&produc, sizeof(item)))
-	{
-		produc.show_item();
-		cout << endl << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" << endl;
-		getchar();
-	}
-	fp.close();
+	for (int x = 0; x < stock_no; x++)
+	produc[x].show_item();
+	cout << endl << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" << endl;
+	getchar();
 }
 void supermarket::display_record(int num)
 {
@@ -34,10 +30,10 @@ void supermarket::display_record(int num)
 	fp.open("Stock.txt", ios::in);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		if (produc.getitem() == num)
+		if (produc[1].getitem() == num)
 		{
 			system("cls");
-			produc.show_item();
+			produc[1].show_item();
 			found = true;
 		}
 	}
@@ -58,11 +54,11 @@ void supermarket::edit_item()
 	fp.open("Stock.txt", ios::in | ios::out);
 	while (fp.read((char*)&produc, sizeof(item)) && found == false)
 	{
-		if (produc.getitem() == num)
+		if (produc[1].getitem() == num)
 		{
-			produc.show_item();
+			produc[1].show_item();
 			cout << "\nPlease Enter The New Details of item: " << endl;
-			produc.create_item();
+			produc[1].create_item();
 			int pos = -1 * sizeof(produc);
 			fp.seekp(pos, ios::cur);
 			fp.write((char*)&produc, sizeof(item));
@@ -87,7 +83,7 @@ void supermarket::delete_item()
 	fp.seekg(0, ios::beg);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		if (produc.getitem() != num)
+		if (produc[1].getitem() != num)
 		{
 			fp2.write((char*)&produc, sizeof(item));
 		}
@@ -110,7 +106,7 @@ void supermarket::item_menu()
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		cout << produc.getitem() << "\t\t" << produc.getName() << "\t\t" << produc.getPrice() << endl;
+		cout << produc[1].getitem() << "\t\t" << produc[1].getName() << "\t\t" << produc[1].getPrice() << endl;
 	}
 	fp.close();
 }
@@ -144,11 +140,11 @@ void supermarket::place_order()
 		fp.read((char*)&produc, sizeof(item));
 		while (!fp.eof())
 		{
-			if (produc.getitem() == order_arr[x])
+			if (produc[1].getitem() == order_arr[x])
 			{
-				amt = produc.getPrice()*quan[x];
-				damt = amt - (amt*produc.getDiscount() / 100);
-				cout << "\n" << order_arr[x] << "\t" << produc.getName() << "\t" << quan[x] << "\t\t" << produc.getPrice() << "\t" << amt << "\t\t" << damt;
+				amt = produc[1].getPrice()*quan[x];
+				damt = amt - (amt*produc[1].getDiscount() / 100);
+				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1.getPrice() << "\t" << amt << "\t\t" << damt;
 				total += damt;
 			}
 			fp.read((char*)&produc, sizeof(item));
@@ -207,3 +203,42 @@ void supermarket::admin_menu()
 	default:admin_menu();
 	}
  }
+
+//constructor - this will load the stock txt into your var
+supermarket::supermarket() {
+	fp.open("Stock.txt");
+	if (fp.is_open()) {
+		string tmp;
+		getline(fp, tmp, ':');
+		market_name = tmp;
+		getline(fp, tmp, ':');
+		market_stock = stoi(tmp);
+		getline(fp, tmp, ':');
+		money = stod(tmp);
+
+		int x = 0; //array need x 
+		try
+		{
+			//no plagrism citation: Ji Young,2016
+			while (!fp.eof()) { //Stock array - read until EOF
+				getline(fp, tmp, '\n'); //eat newline
+				getline(fp, tmp, ':'); //itemname
+				produc[x].setName(tmp);
+				getline(fp, tmp, ':'); //number
+				produc[x].setQuanitity(stod(tmp));
+				getline(fp, tmp, ':'); //unit price
+				produc[x].setPrice(stod(tmp));
+				getline(fp, tmp, ':');//unit weight
+				produc[x].setWeight(stod(tmp));
+				getline(fp, tmp, ':');//unit descp
+				produc[x].setInfo(tmp);
+				x++;
+				stock_no = x;
+			}
+		}
+		catch (exception ex)
+		{
+			//throw ex
+		}
+	}
+}

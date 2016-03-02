@@ -4,9 +4,11 @@
 #include<fstream>
 
 class supermarket{
-
+	string market_name;
+	int market_stock,stock_no;
+	float money;
 	fstream fp;
-	item produc;
+	item produc[100];
 public:
 	void save_item();
 	void show_all_item();
@@ -17,4 +19,5 @@ public:
 	void place_order();
 	void market_items();
 	void admin_menu();
+	supermarket();
 };
