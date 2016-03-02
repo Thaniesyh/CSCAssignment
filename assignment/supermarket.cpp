@@ -4,7 +4,8 @@
 #include<fstream>
 
 using namespace std;
-
+//TODO: please remove all fp.write first
+//delete item or edit  item pls save into the variable first
 void supermarket::save_item() {
 	fp.open("Stock.txt", ios::out | ios::app);
 	produc[1].create_item();
