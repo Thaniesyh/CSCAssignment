@@ -9,8 +9,6 @@ using namespace std;
 //setter
 
 void item::create_item() {
-	cout << endl << "Please Enter The item Number: ";
-	cin >> item_number;
 	cout << endl << "Please Enter The Name of The item: ";
 	cin.ignore();
 	getline(cin,item_name);
@@ -23,17 +21,11 @@ void item::create_item() {
 	cout << endl << "Please Enter Description of The item: ";
 	cin.ignore();
 	getline(cin,item_info);
-	cout << endl << "Please Enter The Discount (%): ";
-	cin >> item_discount;
 }
 
 void item::show_item(){
-	cout << endl << "No" << "Name" << "Quantity" << "Price" << "Weight" << "Info";
-	cout << endl << item_number << ":" << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info << ":" << item_discount;
-}
-
-int item::getitem() {
-	return item_number;
+	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
+	cout << endl << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info;
 }
 
 int item::getQuantity() {
@@ -47,10 +39,6 @@ string item::getName()
 {
 	return item_name;
 }
-float item::getDiscount()
-{
-	return item_discount;
-}
 float item::getWeight() 
 {
 	return item_weight;
@@ -62,9 +50,6 @@ string item::getInfo()
 
 void item::setInfo(string s) {
 	item_info = s;
-}
-void item::setitem(int i) {
-	item_number = i;
 }
 void item::setName(string s) {
 	item_name = s;

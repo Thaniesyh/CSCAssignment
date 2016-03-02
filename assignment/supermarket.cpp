@@ -144,7 +144,7 @@ void supermarket::place_order()
 			{
 				amt = produc[1].getPrice()*quan[x];
 				damt = amt - (amt*produc[1].getDiscount() / 100);
-				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1.getPrice() << "\t" << amt << "\t\t" << damt;
+				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1].getPrice() << "\t" << amt << "\t\t" << damt;
 				total += damt;
 			}
 			fp.read((char*)&produc, sizeof(item));
