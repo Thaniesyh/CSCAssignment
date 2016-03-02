@@ -31,7 +31,7 @@ void supermarket::display_record(int num)
 	fp.open("Stock.txt", ios::in);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		if (produc[1].getitem() == num)
+		//if (produc[1].getitem() == num)
 		{
 			system("cls");
 			produc[1].show_item();
@@ -55,7 +55,7 @@ void supermarket::edit_item()
 	fp.open("Stock.txt", ios::in | ios::out);
 	while (fp.read((char*)&produc, sizeof(item)) && found == false)
 	{
-		if (produc[1].getitem() == num)
+	//	if (produc[1].getitem() == num)
 		{
 			produc[1].show_item();
 			cout << "\nPlease Enter The New Details of item: " << endl;
@@ -84,7 +84,7 @@ void supermarket::delete_item()
 	fp.seekg(0, ios::beg);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		if (produc[1].getitem() != num)
+	//	if (produc[1].getitem() != num)
 		{
 			fp2.write((char*)&produc, sizeof(item));
 		}
@@ -99,17 +99,12 @@ void supermarket::delete_item()
 void supermarket::item_menu()
 {
 	system("cls");
-	fp.open("Stock.txt", ios::in);
 
 	cout << endl << endl << "\t\titem MENU\n\n";
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
 	cout << "P.NO.\t\tNAME\t\tPRICE\n";
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-	while (fp.read((char*)&produc, sizeof(item)))
-	{
-		cout << produc[1].getitem() << "\t\t" << produc[1].getName() << "\t\t" << produc[1].getPrice() << endl;
-	}
-	fp.close();
+	cout << produc[1].getName() << "\t\t" << produc[1].getPrice() << endl;
 }
 
 void supermarket::place_order()
@@ -141,10 +136,10 @@ void supermarket::place_order()
 		fp.read((char*)&produc, sizeof(item));
 		while (!fp.eof())
 		{
-			if (produc[1].getitem() == order_arr[x])
+			//if (produc[1].getitem() == order_arr[x])
 			{
 				amt = produc[1].getPrice()*quan[x];
-				damt = amt - (amt*produc[1].getDiscount() / 100);
+				//damt = amt - (amt*produc[1].getDiscount() / 100);
 				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1].getPrice() << "\t" << amt << "\t\t" << damt;
 				total += damt;
 			}
