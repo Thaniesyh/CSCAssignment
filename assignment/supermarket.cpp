@@ -9,18 +9,24 @@ using namespace std;
 void supermarket::save_item() {
 	produc[stock_no].create_item();
 	stock_no++;
-	cout << endl << endl << "The item Has Been Sucessfully Created...";
+	space();
+	space();
+	cout << "The item Has Been Sucessfully Created...";
 	getchar();
 }
 void supermarket::show_all_item() //OK
 {
 	system("cls");
-	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-	cout << endl << "\t\tRECORDS.";
-	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+
+	border('@', 20);
+	cout <<"RECORDS." << endl;
+	border('@', 20);
+
 	for (int x = 0; x < stock_no; x++)
 	produc[x].show_item();
-	cout << endl << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" << endl;
+	space();
+	border('@', 20);
+	space();
 	getchar();
 }
 void supermarket::display_record(int num) //OK NO TEST
@@ -89,9 +95,11 @@ void supermarket::item_menu()
 	system("cls");
 
 	cout << endl << endl << "\t\titem MENU\n\n";
-	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+	border('@', 20);
 	cout << "NO. NAME\t\tPRICE\n";
-	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+	space();
+	border('@', 20);
+
 	for (int x = 0; x < stock_no; x++) {
 		cout << x <<". " << produc[x].getName() << "\t\t" << produc[x].getPrice() << endl;
 	}
@@ -104,9 +112,10 @@ void supermarket::place_order() //OK
 	float amt, damt, total = 0;
 	char ch = 'Y';
 	item_menu();
-	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+	border('@', 20);
 	cout << "\n PLACE YOUR ORDER";
-	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+	space();
+	border('@', 20);
 	do {
 		cout << "\n\nEnter The item #: ";
 		cin >> order_arr[c];
@@ -119,7 +128,9 @@ void supermarket::place_order() //OK
 	cout << "\n\nThank You...";
 	getchar();
 	system("cls");
-	cout << "\n\n********************************INVOICE************************\n";
+	border('*', 20);
+	cout << "Invoice" << endl;
+	border('*', 20);
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount\n";
 	for (int x = 0; x <= c; x++)
 	{
@@ -140,14 +151,14 @@ void supermarket::admin_menu()
 {
 	system("cls");
 	int option;
-	cout << "\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+	border('@', 30);
 	cout << "\n\tPress 1 to CREATE item";
 	cout << "\n\tPress 2 to DISPLAY ALL itemS";
 	cout << "\n\tPress 3 to QUERY ";
 	cout << "\n\tPress 4 to MODIFY item";
 	cout << "\n\tPress 5 to DELETE item";
 	cout << "\n\tPress 6 to GO BACK TO MAIN MENU";
-	cout << "\n\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+	border('@', 30);
 
 	cout << "\n\n\tOption: ";
 	cin >> option;
@@ -216,4 +227,20 @@ supermarket::supermarket() {
 		{
 			//throw ex
 		}
+}
+
+// #chenggarnett #yolo
+void border(char c, int a)
+{
+	for (int i = 0; i < a; i++)
+	{
+		cout << c;
+	}
+	space();
+}
+
+// #chenggarnett #yolo
+void space()
+{
+	cout << endl;
 }
