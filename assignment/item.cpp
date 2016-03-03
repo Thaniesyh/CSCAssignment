@@ -8,20 +8,7 @@ using namespace std;
 
 //setter
 
-void item::create_item() {
-	cout << endl << "Please Enter The Name of The item: ";
-	cin.ignore();
-	getline(cin,item_name);
-	cout << endl << "Please Enter Quantity of The item: ";
-	cin >> item_quantity;
-	cout << endl << "Please Enter The Price of The item: ";
-	cin >> item_price;
-	cout << endl << "Please Enter The Weight of The item: ";
-	cin >> item_weight;
-	cout << endl << "Please Enter Description of The item: ";
-	cin.ignore();
-	getline(cin,item_info);
-}
+
 
 void item::show_item(){
 	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
