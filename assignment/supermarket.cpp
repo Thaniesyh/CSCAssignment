@@ -10,24 +10,16 @@ void supermarket::edit_item()
 	int num;
 	bool found = false;
 	system("cls");
+	item_menu;
 	cout << endl << endl << "\tPlease Enter The item #: ";
 	cin >> num;
-
-	
-	while (fp.read((char*)&produc, sizeof(item)) && found == false)
-	{
-	//	if (produc[1].getitem() == num)
-		{
-			produc[1].show_item();
-			cout << "\nPlease Enter The New Details of item: " << endl;
-			produc[1].create_item();
-			int pos = -1 * sizeof(produc);
-			
-			cout << endl << endl << "\t Record Successfully Updated...";
-			found = true;
-		}
+	if (num > 0 && num < stock_no) {
+		produc[num].show_item();
+		cout << "\nPlease Enter The New Details of item: " << endl;
+		produc[num].create_item();
+		cout << endl << endl << "\t Record Successfully Updated...";
+		found = true;
 	}
-	
 	if (found == false)
 		cout << endl << endl << "Record Not Found...";
 	getchar();
