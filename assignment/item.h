@@ -31,5 +31,5 @@ public:
 	float getPrice();
 	float getWeight();
 	string getInfo();
-	// thaneysh pls do the getters such as getPrice, getName...etc
+	
 };

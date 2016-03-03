@@ -4,44 +4,7 @@
 #include<fstream>
 
 using namespace std;
-//TODO: please remove all fp.write
-//delete item or edit  item pls save into the variable first
-void supermarket::save_item() {
-	produc[stock_no].create_item();
-	stock_no++;
-	space();
-	space();
-	cout << "The item Has Been Sucessfully Created...";
-	getchar();
-}
-void supermarket::show_all_item() //OK
-{
-	system("cls");
 
-	border('@', 20);
-	cout <<"RECORDS." << endl;
-	border('@', 20);
-
-	for (int x = 0; x < stock_no; x++)
-	produc[x].show_item();
-	space();
-	border('@', 20);
-	space();
-	getchar();
-}
-void supermarket::display_record(int num) //OK NO TEST
-{
-	bool found = false;
-	if (num < stock_no){
-			system("cls");
-			produc[num].show_item();
-			found = true;
-		}
-
-	if (found == true)
-		cout << "\n\nNo record found";
-	getchar();
-}
 void supermarket::edit_item()
 {
 	int num;
@@ -69,27 +32,7 @@ void supermarket::edit_item()
 		cout << endl << endl << "Record Not Found...";
 	getchar();
 }
-void supermarket::delete_item()
-{
-	int num;
-	system("cls");
-	cout << endl << endl << "Please Enter The item #: ";
-	cin >> num;
-	
-	
-	while (fp.read((char*)&produc, sizeof(item)))
-	{
-	//	if (produc[1].getitem() != num)
-		{
-			
-		}
-	}
-	
-	remove("Stock.txt");
-	rename("Temp.dat", "Stock.txt");
-	cout << endl << endl << "\tRecord Deleted...";
-	getchar();
-}
+
 void supermarket::item_menu()
 {
 	system("cls");
@@ -142,50 +85,31 @@ void supermarket::place_order() //OK
 	getchar();
 }
 
-void supermarket::market_items()
-{
-	system("cls");
 
-}
 void supermarket::admin_menu()
 {
 	system("cls");
 	int option;
 	border('@', 30);
-	cout << "\n\tPress 1 to CREATE item";
-	cout << "\n\tPress 2 to DISPLAY ALL itemS";
-	cout << "\n\tPress 3 to QUERY ";
-	cout << "\n\tPress 4 to MODIFY item";
-	cout << "\n\tPress 5 to DELETE item";
-	cout << "\n\tPress 6 to GO BACK TO MAIN MENU";
+	
+	cout << "\n\tPress 1 to DISPLAY ALL itemS";
+	cout << "\n\tPress 2 to MODIFY item";
+	cout << "\n\tPress 3 to GO BACK TO MAIN MENU";
 	border('@', 30);
 
 	cout << "\n\n\tOption: ";
 	cin >> option;
 	switch (option)
 	{
-	case 1: system("cls");
-		save_item();
+	
+
+	case 1: item_menu();
 		break;
 
-	case 2: show_all_item();
+	case 2: edit_item();
 		break;
 
-	case 3:
-		int num;
-		system("cls");
-		cout << "\n\n\tPlease Enter The item Number: ";
-		cin >> num;
-		display_record(num);
-		break;
-
-	case 4: edit_item();
-		break;
-
-	case 5: delete_item();
-		break;
-
-	case 6: system("cls");
+	case 3: system("cls");
 		break;
 
 	default:admin_menu();
