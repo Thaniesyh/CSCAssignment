@@ -10,8 +10,6 @@ class supermarket{
 	fstream fp;
 	item produc[100];
 public:
-
-	void show_all_item();
 	void edit_item();
 	void place_order();
 	void admin_menu();
