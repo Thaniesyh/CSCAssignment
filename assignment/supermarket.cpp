@@ -28,15 +28,12 @@ void supermarket::show_all_item() //OK
 void supermarket::display_record(int num) //OK NO TEST
 {
 	bool found = false;
-	fp.open("Stock.txt", ios::in);
-	while (fp.read((char*)&produc, sizeof(item)))
-	{
+	if (num < stock_no){
 			system("cls");
 			produc[num].show_item();
 			found = true;
 		}
 
-	fp.close();
 	if (found == true)
 		cout << "\n\nNo record found";
 	getchar();
