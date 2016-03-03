@@ -7,10 +7,7 @@ using namespace std;
 //TODO: please remove all fp.write first
 //delete item or edit  item pls save into the variable first
 void supermarket::save_item() {
-	fp.open("Stock.txt", ios::out | ios::app);
-	produc[1].create_item();
-	fp.write((char*)&produc, sizeof(item));
-	fp.close();
+	
 	cout << endl << endl << "The item Has Been Sucessfully Created...";
 	getchar();
 }
@@ -28,7 +25,7 @@ void supermarket::show_all_item()
 void supermarket::display_record(int num)
 {
 	bool found = false;
-	fp.open("Stock.txt", ios::in);
+	
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
 		//if (produc[1].getitem() == num)
@@ -39,7 +36,7 @@ void supermarket::display_record(int num)
 		}
 	}
 
-	fp.close();
+	
 	if (found == true)
 		cout << "\n\nNo record found";
 	getchar();
@@ -52,7 +49,7 @@ void supermarket::edit_item()
 	cout << endl << endl << "\tPlease Enter The item #: ";
 	cin >> num;
 
-	fp.open("Stock.txt", ios::in | ios::out);
+	
 	while (fp.read((char*)&produc, sizeof(item)) && found == false)
 	{
 	//	if (produc[1].getitem() == num)
@@ -61,13 +58,12 @@ void supermarket::edit_item()
 			cout << "\nPlease Enter The New Details of item: " << endl;
 			produc[1].create_item();
 			int pos = -1 * sizeof(produc);
-			fp.seekp(pos, ios::cur);
-			fp.write((char*)&produc, sizeof(item));
+			
 			cout << endl << endl << "\t Record Successfully Updated...";
 			found = true;
 		}
 	}
-	fp.close();
+	
 	if (found == false)
 		cout << endl << endl << "Record Not Found...";
 	getchar();
@@ -78,19 +74,16 @@ void supermarket::delete_item()
 	system("cls");
 	cout << endl << endl << "Please Enter The item #: ";
 	cin >> num;
-	fp.open("Stock.txt", ios::in | ios::out);
-	fstream fp2;
-	fp2.open("Temp.dat", ios::out);
-	fp.seekg(0, ios::beg);
+	
+	
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
 	//	if (produc[1].getitem() != num)
 		{
-			fp2.write((char*)&produc, sizeof(item));
+			
 		}
 	}
-	fp2.close();
-	fp.close();
+	
 	remove("Stock.txt");
 	rename("Temp.dat", "Stock.txt");
 	cout << endl << endl << "\tRecord Deleted...";
@@ -132,8 +125,7 @@ void supermarket::place_order()
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
 	for (int x = 0; x <= c; x++)
 	{
-		fp.open("Stock.txt", ios::in);
-		fp.read((char*)&produc, sizeof(item));
+		
 		while (!fp.eof())
 		{
 			//if (produc[1].getitem() == order_arr[x])
@@ -143,9 +135,9 @@ void supermarket::place_order()
 				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1].getPrice() << "\t" << amt << "\t\t" << damt;
 				total += damt;
 			}
-			fp.read((char*)&produc, sizeof(item));
+			
 		}
-		fp.close();
+		
 	}
 	cout << "\n\n\t\t\t\t\tTOTAL = " << total;
 	getchar();
@@ -202,8 +194,7 @@ void supermarket::admin_menu()
 
 //constructor - this will load the stock txt into your var
 supermarket::supermarket() {
-	fp.open("Stock.txt");
-	if (fp.is_open()) {
+	
 		string tmp;
 		getline(fp, tmp, ':');
 		market_name = tmp;
