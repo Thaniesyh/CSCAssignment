@@ -12,6 +12,7 @@ class supermarket{
 public:
 
 	void show_all_item();
+	void item_menu();
 	void edit_item();
 	void place_order();
 	void admin_menu();
