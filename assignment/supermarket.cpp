@@ -4,14 +4,17 @@
 #include<fstream>
 
 using namespace std;
-//TODO: please remove all fp.write first
+//TODO: please remove all fp.write
 //delete item or edit  item pls save into the variable first
 void supermarket::save_item() {
-	
+	fp.open("Stock.txt", ios::out | ios::app);
+	produc[1].create_item();
+	fp.write((char*)&produc, sizeof(item));
+	fp.close();
 	cout << endl << endl << "The item Has Been Sucessfully Created...";
 	getchar();
 }
-void supermarket::show_all_item()
+void supermarket::show_all_item() //OK
 {
 	system("cls");
 	cout << endl << "\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
@@ -22,21 +25,18 @@ void supermarket::show_all_item()
 	cout << endl << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n" << endl;
 	getchar();
 }
-void supermarket::display_record(int num)
+void supermarket::display_record(int num) //OK NO TEST
 {
 	bool found = false;
-	
+	fp.open("Stock.txt", ios::in);
 	while (fp.read((char*)&produc, sizeof(item)))
 	{
-		//if (produc[1].getitem() == num)
-		{
 			system("cls");
-			produc[1].show_item();
+			produc[num].show_item();
 			found = true;
 		}
-	}
 
-	
+	fp.close();
 	if (found == true)
 		cout << "\n\nNo record found";
 	getchar();
@@ -95,12 +95,15 @@ void supermarket::item_menu()
 
 	cout << endl << endl << "\t\titem MENU\n\n";
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-	cout << "P.NO.\t\tNAME\t\tPRICE\n";
+	cout << "NO. NAME\t\tPRICE\n";
 	cout << "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-	cout << produc[1].getName() << "\t\t" << produc[1].getPrice() << endl;
+	for (int x = 0; x < stock_no; x++) {
+		cout << x <<". " << produc[x].getName() << "\t\t" << produc[x].getPrice() << endl;
+	}
+	
 }
 
-void supermarket::place_order()
+void supermarket::place_order() //OK
 {
 	int order_arr[50], quan[50], c = 0;
 	float amt, damt, total = 0;
@@ -125,9 +128,12 @@ void supermarket::place_order()
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
 	for (int x = 0; x <= c; x++)
 	{
-		
+		fp.open("Stock.txt", ios::in);
+		fp.read((char*)&produc, sizeof(item));
 		while (!fp.eof())
 		{
+		amt = produc[order_arr[x]].getPrice()*quan[x];
+		cout << "\n" << order_arr[x] << "\t" << produc[x].getName() << "\t" << quan[x] << "\t\t" << produc[x].getPrice() << "\t" << amt;
 			//if (produc[1].getitem() == order_arr[x])
 			{
 				amt = produc[1].getPrice()*quan[x];
@@ -135,13 +141,14 @@ void supermarket::place_order()
 				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1].getPrice() << "\t" << amt << "\t\t" << damt;
 				total += damt;
 			}
-			
+			fp.read((char*)&produc, sizeof(item));
 		}
-		
+		fp.close();
 	}
 	cout << "\n\n\t\t\t\t\tTOTAL = " << total;
 	getchar();
 }
+
 void supermarket::market_items()
 {
 	system("cls");
