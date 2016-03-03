@@ -16,7 +16,7 @@ void supermarket::edit_item()
 	if (num > 0 && num < stock_no) {
 		produc[num].show_item();
 		cout << "\nPlease Enter The New Details of item: " << endl;
-		produc[num].create_item();
+
 		cout << endl << endl << "\t Record Successfully Updated...";
 		found = true;
 	}

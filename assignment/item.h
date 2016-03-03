@@ -10,13 +10,8 @@ class item
 
 public:
 
-	void create_item();
 	void show_item();
 	int getQuantity();
-	float getPrice();
-	string getName();
-	float getWeight();
-	string getInfo();
 	
 	//setters
 	void setQuanitity(float);
