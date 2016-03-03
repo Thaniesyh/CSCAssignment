@@ -11,7 +11,6 @@ class item
 public:
 
 	void show_item();
-	int getQuantity();
 	
 	//setters
 	void setQuanitity(float);

@@ -10,7 +10,7 @@ void supermarket::edit_item()
 	int num;
 	bool found = false;
 	system("cls");
-	item_menu;
+	item_menu();
 	cout << endl << endl << "\tPlease Enter The item #: ";
 	cin >> num;
 	if (num > 0 && num < stock_no) {
