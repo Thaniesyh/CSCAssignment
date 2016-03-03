@@ -7,10 +7,8 @@ using namespace std;
 //TODO: please remove all fp.write
 //delete item or edit  item pls save into the variable first
 void supermarket::save_item() {
-	fp.open("Stock.txt", ios::out | ios::app);
-	produc[1].create_item();
-	fp.write((char*)&produc, sizeof(item));
-	fp.close();
+	produc[stock_no].create_item();
+	stock_no++;
 	cout << endl << endl << "The item Has Been Sucessfully Created...";
 	getchar();
 }
@@ -106,11 +104,9 @@ void supermarket::place_order() //OK
 	float amt, damt, total = 0;
 	char ch = 'Y';
 	item_menu();
-	cout << endl;
-	border('@', 20);
+	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
 	cout << "\n PLACE YOUR ORDER";
-	cout << endl;
-	border('@', 20);
+	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
 	do {
 		cout << "\n\nEnter The item #: ";
 		cin >> order_arr[c];
@@ -123,32 +119,13 @@ void supermarket::place_order() //OK
 	cout << "\n\nThank You...";
 	getchar();
 	system("cls");
-	cout << endl;
-	border('*', 15);
-	cout << endl;
-	cout << "Invoice";
-	cout << endl;
-	border('*', 15);
-	cout << endl;
-	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
+	cout << "\n\n********************************INVOICE************************\n";
+	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount\n";
 	for (int x = 0; x <= c; x++)
 	{
-		fp.open("Stock.txt", ios::in);
-		fp.read((char*)&produc, sizeof(item));
-		while (!fp.eof())
-		{
 		amt = produc[order_arr[x]].getPrice()*quan[x];
 		cout << "\n" << order_arr[x] << "\t" << produc[x].getName() << "\t" << quan[x] << "\t\t" << produc[x].getPrice() << "\t" << amt;
-			//if (produc[1].getitem() == order_arr[x])
-			{
-				amt = produc[1].getPrice()*quan[x];
-				//damt = amt - (amt*produc[1].getDiscount() / 100);
-				cout << "\n" << order_arr[x] << "\t" << produc[1].getName() << "\t" << quan[x] << "\t\t" << produc[1].getPrice() << "\t" << amt << "\t\t" << damt;
-				total += damt;
-			}
-			fp.read((char*)&produc, sizeof(item));
-		}
-		fp.close();
+		total += amt;
 	}
 	cout << "\n\n\t\t\t\t\tTOTAL = " << total;
 	getchar();
@@ -239,13 +216,4 @@ supermarket::supermarket() {
 		{
 			//throw ex
 		}
-}
-
-// #chenggarnett #yolo
-void border(char c, int a) 
-{
-	for (int i = 0; i < a; i++)
-	{
-		cout << c;
-	}
 }
