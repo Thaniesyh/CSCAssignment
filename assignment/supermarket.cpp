@@ -231,5 +231,4 @@ supermarket::supermarket() {
 		{
 			//throw ex
 		}
-	}
 }
