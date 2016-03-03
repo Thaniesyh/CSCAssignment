@@ -230,7 +230,7 @@ supermarket::supermarket() {
 }
 
 // #chenggarnett #yolo
-void border(char c, int a)
+void supermarket::border(char c, int a)
 {
 	for (int i = 0; i < a; i++)
 	{
