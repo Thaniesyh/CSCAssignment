@@ -19,5 +19,6 @@ public:
 	void place_order();
 	void market_items();
 	void admin_menu();
+	void border(char, int);
 	supermarket();
 };

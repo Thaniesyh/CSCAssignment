@@ -106,9 +106,11 @@ void supermarket::place_order() //OK
 	float amt, damt, total = 0;
 	char ch = 'Y';
 	item_menu();
-	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
+	cout << endl;
+	border('@', 20);
 	cout << "\n PLACE YOUR ORDER";
-	cout << "\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+	cout << endl;
+	border('@', 20);
 	do {
 		cout << "\n\nEnter The item #: ";
 		cin >> order_arr[c];
@@ -121,7 +123,13 @@ void supermarket::place_order() //OK
 	cout << "\n\nThank You...";
 	getchar();
 	system("cls");
-	cout << "\n\n********************************INVOICE************************\n";
+	cout << endl;
+	border('*', 15);
+	cout << endl;
+	cout << "Invoice";
+	cout << endl;
+	border('*', 15);
+	cout << endl;
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
 	for (int x = 0; x <= c; x++)
 	{
@@ -231,4 +239,13 @@ supermarket::supermarket() {
 		{
 			//throw ex
 		}
+}
+
+// #chenggarnett #yolo
+void border(char c, int a) 
+{
+	for (int i = 0; i < a; i++)
+	{
+		cout << c;
+	}
 }

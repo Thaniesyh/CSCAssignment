@@ -1,4 +1,4 @@
-#pragma once
+
 #include<iostream>
 #include<string>
 
@@ -17,10 +17,15 @@ public:
 	string getName();
 	float getWeight();
 	string getInfo();
-	//setter
+	
+	//setters
 	void setQuanitity(float);
 	void setPrice(float);
 	void setName(string);
 	void setWeight(float);
 	void setInfo(string);
+
+	//getters
+	string getName();
+	// thaneysh pls do the getters such as getPrice, getName...etc
 };
