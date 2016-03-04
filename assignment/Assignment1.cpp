@@ -17,11 +17,11 @@ int main()
 	for (;;)
 	{
 
-		cout << "\n\t*******************************************";
-		cout << "\n\t1. CUSTOMER";
-		cout << "\n\t2. ADMINISTRATOR";
-		cout << "\n\t3. EXIT";
-		cout << "\n\t*******************************************";
+		store.border('*', 20);
+		cout << "1. CUSTOMER" << endl;
+		cout << "2. ADMINISTRATOR" << endl;
+		cout << "3. EXIT" << endl;
+		store.border('*', 20);
 
 		cout << "\n\tOption: ";
 		cin >> option;
@@ -37,9 +37,9 @@ int main()
 			break;
 
 		case 3:
-			cout << "\n\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";
-			cout << "\n\tGood Bye!";
-			cout << "\n\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+			store.border('@', 20);
+			cout << "Good Bye!" << endl;
+			store.border('@', 20);
 			exit(0);
 
 		default:cout << "Invalid Input...\n";
