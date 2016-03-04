@@ -1,21 +1,15 @@
 #include<fstream>
-#include<conio.h>
-#include<string.h>
-#include<iomanip>
+#include<string>
 #include<iostream>
 #include"item.h"
 #include"supermarket.h"
+
 using namespace std;
-
-
 
 int main()
 {
 	supermarket store;
 	int option;
-
-	for (;;)
-	{
 
 		store.border('*', 20);
 		cout << "1. CUSTOMER" << endl;
@@ -44,6 +38,5 @@ int main()
 
 		default:cout << "Invalid Input...\n";
 		}
-
-	}
+	
 }

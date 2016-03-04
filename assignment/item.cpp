@@ -10,10 +10,7 @@ using namespace std;
 
 
 
-void item::show_item(){
-	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
-	cout << endl << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info;
-}
+
 
 int item::getQuantity() {
 	return item_quantity;

@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<string>
 
@@ -9,9 +8,6 @@ class item
 	float item_price, item_quantity, item_weight;
 
 public:
-
-	void show_item();
-	
 	//setters
 	void setQuanitity(float);
 	void setPrice(float);
