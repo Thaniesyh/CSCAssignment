@@ -6,15 +6,6 @@ using namespace std;
 
 //getter
 
-//setter
-
-
-
-void item::show_item(){
-	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
-	cout << endl << item_name << ":" << item_quantity << ":" << item_price << ":" << item_weight << ":" << item_info;
-}
-
 int item::getQuantity() {
 	return item_quantity;
 }
@@ -34,7 +25,7 @@ string item::getInfo()
 {
 	return item_info;
 }
-
+//setter
 void item::setInfo(string s) {
 	item_info = s;
 }
