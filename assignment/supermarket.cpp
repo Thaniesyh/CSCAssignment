@@ -44,7 +44,7 @@ void supermarket::item_menu()
 void supermarket::place_order() //OK
 {
 	int order_arr[50], quan[50], c = 0;
-	float amt, damt, total = 0;
+	float amt, total = 0;
 	char ch = 'Y';
 	item_menu();
 	border('@', 20);
@@ -70,7 +70,7 @@ void supermarket::place_order() //OK
 	for (int x = 0; x <= c; x++)
 	{
 		amt = product[order_arr[x]].getPrice()*quan[x];
-		cout << "\n" << order_arr[x] << "\t" << product[x].getName() << "\t" << quan[x] << "\t\t" << product[x].getPrice() << "\t" << amt;
+		cout << "\n" << order_arr[x] << "\t" << product[order_arr[x]].getName() << "\t" << quan[x] << "\t\t" << product[order_arr[x]].getPrice() << "\t" << amt;
 		total += amt;
 	}
 	cout << "\n\n\t\t\t\t\tTOTAL = " << total;
@@ -97,10 +97,8 @@ void supermarket::admin_menu()
 
 	case 1: item_menu();
 		break;
-
 	case 2: edit_item();
 		break;
-
 	case 3: system("cls");
 		break;
 
@@ -140,7 +138,7 @@ supermarket::supermarket() {
 		getline(fp, tmp, ':');
 		market_stock = stoi(tmp);
 		getline(fp, tmp, ':');
-		money = stod(tmp);
+		money = stof(tmp);
 
 		int x = 0; //array need x 
 		try
@@ -151,11 +149,11 @@ supermarket::supermarket() {
 				getline(fp, tmp, ':'); //itemname
 				product[x].setName(tmp);
 				getline(fp, tmp, ':'); //number
-				product[x].setQuantity(stod(tmp));
+				product[x].setQuanitity(stod(tmp));
 				getline(fp, tmp, ':'); //unit price
-				product[x].setPrice(stod(tmp));
+				product[x].setPrice(stof(tmp));
 				getline(fp, tmp, ':');//unit weight
-				product[x].setWeight(stod(tmp));
+				product[x].setWeight(stof(tmp));
 				getline(fp, tmp, ':');//unit descp
 				product[x].setInfo(tmp);
 				x++;

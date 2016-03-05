@@ -29,16 +29,13 @@ float item::getPrice()
 {
 	return item_price;
 }
-string item::getName()
-{
+string item::getName(){
 	return item_name;
 }
-float item::getWeight() 
-{
+float item::getWeight() {
 	return item_weight;
 }
-string item::getInfo()
-{
+string item::getInfo(){
 	return item_info;
 }
 
