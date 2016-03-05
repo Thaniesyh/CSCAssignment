@@ -1,4 +1,3 @@
-#include<iostream>
 #include<string>
 #ifndef _ITEM_
 #define _ITEM_
