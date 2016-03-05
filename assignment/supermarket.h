@@ -2,6 +2,9 @@
 #include<string>
 #include"item.h"
 
+#ifndef _SUPERMARKET_
+#define _SUPERMARKET_
+
 class supermarket{
 	string market_name;
 	int market_stock,stock_no;
@@ -22,3 +25,4 @@ public:
 	void space();
 	
 };
+#endif // !_SUPERMARKET_

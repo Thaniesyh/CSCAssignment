@@ -151,7 +151,7 @@ supermarket::supermarket() {
 				getline(fp, tmp, ':'); //itemname
 				product[x].setName(tmp);
 				getline(fp, tmp, ':'); //number
-				product[x].setQuanitity(stod(tmp));
+				product[x].setQuantity(stod(tmp));
 				getline(fp, tmp, ':'); //unit price
 				product[x].setPrice(stod(tmp));
 				getline(fp, tmp, ':');//unit weight

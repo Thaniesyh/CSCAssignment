@@ -4,14 +4,29 @@
 
 using namespace std;
 
-//getter
+//constructors
+item::item()
+{
+	// thaneysh pls set the variables in item.h to default
+	item_name = "";
+	
+}
 
-//setter
-int item::getQuantity() {
+item::item(string name, float price, int qua, float weight, string des)
+{
+	// thaneysh pls set the variables in item.h equal to parameters above
+	item_name = name;
+	item_price = price;
+}
+
+//getters
+int item::getQuantity() 
+{
 	return item_quantity;
 }
 
-float item::getPrice(){
+float item::getPrice()
+{
 	return item_price;
 }
 string item::getName()
@@ -27,6 +42,7 @@ string item::getInfo()
 	return item_info;
 }
 
+//setters
 void item::setInfo(string s) {
 	item_info = s;
 }
@@ -36,7 +52,7 @@ void item::setName(string s) {
 void item::setPrice(float f) {
 	item_price = f;
 }
-void item::setQuanitity(float f) {
+void item::setQuantity(int f) {
 	item_quantity = f;
 }
 void item::setWeight(float f) {
