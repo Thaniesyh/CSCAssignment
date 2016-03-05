@@ -7,11 +7,6 @@ using namespace std;
 //getter
 
 //setter
-
-
-
-
-
 int item::getQuantity() {
 	return item_quantity;
 }

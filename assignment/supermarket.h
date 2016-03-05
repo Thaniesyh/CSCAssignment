@@ -1,4 +1,4 @@
-#include<iostream>
+
 #include<string>
 #include"item.h"
 
@@ -6,7 +6,6 @@ class supermarket{
 	string market_name;
 	int market_stock,stock_no;
 	float money;
-	fstream fp;
 	item product[100];
 public:
 	// constructor

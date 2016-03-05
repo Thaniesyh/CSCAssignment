@@ -108,43 +108,6 @@ void supermarket::admin_menu()
 	}
  }
 
-//constructor - this will load the stock txt into your var
-supermarket::supermarket() {
-	
-		string tmp;
-		getline(fp, tmp, ':');
-		market_name = tmp;
-		getline(fp, tmp, ':');
-		market_stock = stoi(tmp);
-		getline(fp, tmp, ':');
-		money = stod(tmp);
-
-		int x = 0; //array need x 
-		try
-		{
-			//no plagrism citation: Ji Young,2016
-			while (!fp.eof()) { //Stock array - read until EOF
-				getline(fp, tmp, '\n'); //eat newline
-				getline(fp, tmp, ':'); //itemname
-				product[x].setName(tmp);
-				getline(fp, tmp, ':'); //number
-				product[x].setQuanitity(stod(tmp));
-				getline(fp, tmp, ':'); //unit price
-				product[x].setPrice(stod(tmp));
-				getline(fp, tmp, ':');//unit weight
-				product[x].setWeight(stod(tmp));
-				getline(fp, tmp, ':');//unit descp
-				product[x].setInfo(tmp);
-				x++;
-				stock_no = x;
-			}
-		}
-		catch (exception ex)
-		{
-			//throw ex
-		}
-}
-
 void supermarket::show_item() {
 	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
 	// retrieve values from getters
@@ -164,4 +127,42 @@ void supermarket::border(char c, int a)
 void supermarket::space()
 {
 	cout << endl;
+}
+
+//constructor - this will load the stock txt into your var
+supermarket::supermarket() {
+	ifstream fp;
+	fp.open("Stock.txt");
+	string tmp = "NULL";
+	getline(fp, tmp, ':');
+	market_name = tmp;
+	getline(fp, tmp, ':');
+	market_stock = stoi(tmp);
+	getline(fp, tmp, ':');
+	money = stod(tmp);
+
+	int x = 0; //array need x 
+	try
+	{
+		//no plagrism citation: Ji Young,2016
+		while (!fp.eof()) { //Stock array - read until EOF
+			getline(fp, tmp, '\n'); //eat newline
+			getline(fp, tmp, ':'); //itemname
+			product[x].setName(tmp);
+			getline(fp, tmp, ':'); //number
+			product[x].setQuanitity(stod(tmp));
+			getline(fp, tmp, ':'); //unit price
+			product[x].setPrice(stod(tmp));
+			getline(fp, tmp, ':');//unit weight
+			product[x].setWeight(stod(tmp));
+			getline(fp, tmp, ':');//unit descp
+			product[x].setInfo(tmp);
+			x++;
+			stock_no = x;
+		}
+	}
+	catch (exception ex)
+	{
+		//throw ex
+	}
 }
