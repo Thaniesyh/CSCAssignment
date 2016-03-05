@@ -3,23 +3,29 @@
 #define _ITEM_
 
 using namespace std;
+
 class item
 {
 	string item_name, item_info;
-	float item_price, item_quantity, item_weight;
+	float item_price, item_weight;
+	int item_quantity;
 
 public:
+	// constructors
+	item();
+	item(string, float, int, float, string);
+
 	//setters
-	void setQuanitity(float);
-	void setPrice(float);
 	void setName(string);
+	void setPrice(float);
+	void setQuantity(int);		
 	void setWeight(float);
 	void setInfo(string);
 
 	//getters
 	string getName();
-	int getQuantity();
 	float getPrice();
+	int getQuantity();	
 	float getWeight();
 	string getInfo();
 	
