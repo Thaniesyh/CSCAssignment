@@ -133,36 +133,44 @@ void supermarket::space()
 supermarket::supermarket() {
 	ifstream fp;
 	fp.open("Stock.txt");
-	string tmp = "NULL";
-	getline(fp, tmp, ':');
-	market_name = tmp;
-	getline(fp, tmp, ':');
-	market_stock = stoi(tmp);
-	getline(fp, tmp, ':');
-	money = stod(tmp);
+	if (fp.is_open()) {
+		string tmp;
+		getline(fp, tmp, ':');
+		market_name = tmp;
+		getline(fp, tmp, ':');
+		market_stock = stoi(tmp);
+		getline(fp, tmp, ':');
+		money = stod(tmp);
 
-	int x = 0; //array need x 
-	try
-	{
-		//no plagrism citation: Ji Young,2016
-		while (!fp.eof()) { //Stock array - read until EOF
-			getline(fp, tmp, '\n'); //eat newline
-			getline(fp, tmp, ':'); //itemname
-			product[x].setName(tmp);
-			getline(fp, tmp, ':'); //number
-			product[x].setQuanitity(stod(tmp));
-			getline(fp, tmp, ':'); //unit price
-			product[x].setPrice(stod(tmp));
-			getline(fp, tmp, ':');//unit weight
-			product[x].setWeight(stod(tmp));
-			getline(fp, tmp, ':');//unit descp
-			product[x].setInfo(tmp);
-			x++;
-			stock_no = x;
+		int x = 0; //array need x 
+		try
+		{
+			//no plagrism citation: Ji Young,2016
+			while (!fp.eof()) { //Stock array - read until EOF
+				getline(fp, tmp, '\n'); //eat newline
+				getline(fp, tmp, ':'); //itemname
+				product[x].setName(tmp);
+				getline(fp, tmp, ':'); //number
+				product[x].setQuanitity(stod(tmp));
+				getline(fp, tmp, ':'); //unit price
+				product[x].setPrice(stod(tmp));
+				getline(fp, tmp, ':');//unit weight
+				product[x].setWeight(stod(tmp));
+				getline(fp, tmp, ':');//unit descp
+				product[x].setInfo(tmp);
+				x++;
+				stock_no = x;
+			}
 		}
+		catch (exception ex)
+		{
+			//throw ex
+		}
+		
 	}
-	catch (exception ex)
-	{
-		//throw ex
+	else {
+		//Stock.txt not open
+		//code error handling here.
 	}
+	
 }
