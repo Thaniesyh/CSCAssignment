@@ -78,10 +78,10 @@ void supermarket::place_order() //OK
 	cout << "Invoice" << endl;
 	border('*', 50);
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount\n";
-	for (int x = 0; x <= c; x++)
+	for (int x = 0; x < c; x++)
 	{
-		amt = product[order_arr[x]].getPrice()*quan[x];
-		cout << "\n" << order_arr[x] << "\t" << product[order_arr[x]].getName() << "\t" << quan[x] << "\t\t" << product[order_arr[x]].getPrice() << "\t" << amt;
+		amt = product[order_arr[x]-1].getPrice()*quan[x];
+		cout << "\n" << order_arr[x] << "\t" << product[order_arr[x]-1].getName() << "\t" << quan[x] << "\t\t" << product[order_arr[x]-1].getPrice() << "\t" << amt;
 		total += amt;
 	}
 	cout << "\n\n\t\t\t\t\tTOTAL = " << total;
