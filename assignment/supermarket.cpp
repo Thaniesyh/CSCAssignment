@@ -75,7 +75,7 @@ void supermarket::place_order() //OK
 	getchar();
 	system("cls");
 	border('*', 50);
-	cout << "Invoice" << endl;
+	cout << "\t\tInvoice" << endl;
 	border('*', 50);
 	cout << "\nPr No.\tPr Name\tQuantity \tPrice \tAmount\n";
 	for (int x = 0; x < c; x++)
