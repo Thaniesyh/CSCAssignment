@@ -14,8 +14,8 @@ int main()
 	int option;
 	
 	do 
-	{
-		system("cls");
+	{		
+		store.space();
 		store.border('*', 20);
 		cout << "1. CUSTOMER" << endl;
 		cout << "2. ADMINISTRATOR" << endl;
@@ -24,6 +24,7 @@ int main()
 
 		cout << "\nOption: ";
 		cin >> option;
+		option = store.checkValidation(option, 1, 3);
 
 		switch (option)
 		{
@@ -33,10 +34,12 @@ int main()
 			break;
 
 		case 2:
+			system("cls");
 			option = admin_menu(store);
 			break;
 
 		case 3:
+			system("cls");
 			store.border('@', 20);
 			cout << "Good Bye!" << endl;
 			store.border('@', 20);
@@ -66,6 +69,7 @@ int admin_menu(supermarket& store)
 
 	cout << "\nOption: ";
 	cin >> option;
+	option = store.checkValidation(option, 1, 3);
 
 	switch (option)
 	{

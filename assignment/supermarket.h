@@ -16,7 +16,9 @@ public:
 
 	void item_menu();
 	void edit_item();
-	void place_order();			
+	void place_order();	
+
+	int checkValidation(int,int,int);
 
 	// alignment
 	void border(char, int);
