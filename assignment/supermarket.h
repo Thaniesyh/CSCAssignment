@@ -16,9 +16,7 @@ public:
 
 	void item_menu();
 	void edit_item();
-	void place_order();
-	void admin_menu();	
-	void show_item();
+	void place_order();			
 
 	// alignment
 	void border(char, int);

@@ -78,39 +78,6 @@ void supermarket::place_order() //OK
 }
 
 
-void supermarket::admin_menu()
-{
-	system("cls");
-	int option;
-	border('@', 30);
-	
-	cout << "\n\tPress 1 to DISPLAY ALL itemS";
-	cout << "\n\tPress 2 to MODIFY item";
-	cout << "\n\tPress 3 to GO BACK TO MAIN MENU";
-	border('@', 30);
-
-	cout << "\n\n\tOption: ";
-	cin >> option;
-	switch (option)
-	{
-	
-
-	case 1: item_menu();
-		break;
-	case 2: edit_item();
-		break;
-	case 3: system("cls");
-		break;
-
-	default:admin_menu();
-	}
- }
-
-void supermarket::show_item() {
-	cout << endl << "Name" << "Quantity" << "Price" << "Weight" << "Info";
-	// retrieve values from getters
-}
-
 // #chenggarnett #yolo
 void supermarket::border(char c, int a)
 {
@@ -149,7 +116,7 @@ supermarket::supermarket() {
 				getline(fp, tmp, ':'); //itemname
 				product[x].setName(tmp);
 				getline(fp, tmp, ':'); //number
-				product[x].setQuanitity(stod(tmp));
+				product[x].setQuantity(stod(tmp));
 				getline(fp, tmp, ':'); //unit price
 				product[x].setPrice(stof(tmp));
 				getline(fp, tmp, ':');//unit weight
