@@ -27,12 +27,13 @@ int main()
 
 		switch (option)
 		{
-		case 1: system("cls");
-			store.place_order();
-			getchar();
+		case 1: 
+			system("cls");
+			store.place_order();			
 			break;
 
-		case 2: option = admin_menu(store);
+		case 2:
+			option = admin_menu(store);
 			break;
 
 		case 3:
@@ -65,6 +66,7 @@ int admin_menu(supermarket& store)
 
 	cout << "\nOption: ";
 	cin >> option;
+
 	switch (option)
 	{
 	case 1: store.item_menu();

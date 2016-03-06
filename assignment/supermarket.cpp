@@ -31,12 +31,15 @@ void supermarket::item_menu()
 
 	cout << endl << endl << "\t\titem MENU\n\n";
 	border('@', 20);
-	cout << "NO. NAME\t\tPRICE\n";
+	cout << "NO. NAME\t\tPRICE\t\tQuantity\n";
 	space();
 	border('@', 20);
 
 	for (int x = 0; x < stock_no; x++) {
-		cout << x <<". " << product[x].getName() << "\t\t" << product[x].getPrice() << endl;
+		cout << x + 1 <<". " 
+			<< product[x].getName() << "\t\t" 
+			<< product[x].getPrice() << "\t\t" 
+			<< product[x].getQuantity() << endl;
 	}
 	
 }
@@ -116,7 +119,7 @@ supermarket::supermarket() {
 				getline(fp, tmp, ':'); //itemname
 				product[x].setName(tmp);
 				getline(fp, tmp, ':'); //number
-				product[x].setQuanitity(stod(tmp));
+				product[x].setQuantity(stod(tmp));
 				getline(fp, tmp, ':'); //unit price
 				product[x].setPrice(stof(tmp));
 				getline(fp, tmp, ':');//unit weight
