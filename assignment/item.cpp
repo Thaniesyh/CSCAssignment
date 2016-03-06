@@ -8,7 +8,10 @@ item::item()
 {
 	// thaneysh pls set the variables in item.h to default
 	item_name = "";
-	
+	item_price = NULL;
+	item_quantity = NULL;
+	item_info = "";
+	item_weight = NULL;
 }
 
 item::item(string name, float price, int qua, float weight, string des)
