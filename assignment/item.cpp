@@ -19,7 +19,6 @@ item::item(string name, float price, int qua, float weight, string des)
 	// thaneysh pls set the variables in item.h equal to parameters above
 	item_name = name;
 	item_price = price;
-
 }
 
 //getters
