@@ -81,6 +81,7 @@ void supermarket::place_order() //OK
 	for (int x = 0; x < c; x++)
 	{
 		amt = product[order_arr[x]-1].getPrice()*quan[x];
+		product[order_arr[x] - 1].setPrice(product[order_arr[x]-1].getQuantity()-quan[x]);
 		cout << "\n" << order_arr[x] << "\t" << product[order_arr[x]-1].getName() << "\t" << quan[x] << "\t\t" << product[order_arr[x]-1].getPrice() << "\t" << amt;
 		total += amt;
 	}
