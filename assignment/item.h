@@ -1,35 +1,35 @@
-
-#include<iostream>
 #include<string>
+#ifndef _ITEM_
+#define _ITEM_
 
 using namespace std;
+
 class item
 {
 	string item_name, item_info;
-	float item_price, item_quantity, item_weight;
+	float item_price, item_weight;
+	int item_quantity;
 
 public:
+	// constructors
+	item();
+	item(string, float, int, float, string);
 
-	void create_item();
-	void show_item();
-	int getQuantity();
-	float getPrice();
-	string getName();
-	float getWeight();
-	string getInfo();
-	
 	//setters
-	void setQuanitity(float);
-	void setPrice(float);
 	void setName(string);
+	void setPrice(float);
+	void setQuantity(int);		
 	void setWeight(float);
 	void setInfo(string);
 
 	//getters
 	string getName();
-	int getQuantity();
 	float getPrice();
+	int getQuantity();	
 	float getWeight();
 	string getInfo();
 	
 };
+
+
+#endif // !_ITEM_
