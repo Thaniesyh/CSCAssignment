@@ -106,24 +106,48 @@ void supermarket::item_menu() // OK
 
 }
 
-void supermarket::edit_item()
+// #chenggarnett #yolo
+void supermarket::edit_item() //ok
 {
-	int num;
-	bool found = false;
+	int num, n;
+	int newQua;
+	double newPri;
+
 	system("cls");
 	item_menu();
 	cout << endl << endl << "\tPlease Enter The item #: ";
 	cin >> num;
-	if (num > 0 && num < stock_no) {
+	if (num > 0 && num < stock_no + 1) {
 
-		cout << "\nPlease Enter The New Details of item: " << endl;
+		cout << "1. Quantity" << endl;
+		cout << "2. Price" << endl;
+		cout << "Please select option" << endl;
+		cin >> n;
 
-		cout << endl << endl << "\t Record Successfully Updated...";
-		found = true;
+		switch (n)
+		{
+		case 1:
+			cout << "New quantity :" << endl;
+			cin >> newQua;
+			product[num - 1].setQuantity(newQua);
+			break;
+
+		case 2:
+			cout << "New price :" << endl;
+			cin >> newPri;
+			product[num - 1].setPrice(newPri);
+			break;
+
+		default:
+			cout << "Error" << endl;
+		}
+
 	}
-	if (found == false)
-		cout << endl << endl << "Record Not Found...";
-	getchar();
+
+	else
+		cout << "Record not found!" << endl;
+	
+
 }
 
 
