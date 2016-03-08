@@ -2,7 +2,7 @@
 #include<string>
 #include<fstream>
 #include"supermarket.h"
-
+#include<iomanip>
 using namespace std;
 
 //constructor - this will load the stock txt into your var
@@ -181,3 +181,28 @@ int supermarket::checkValidation(int cho, int a, int b)
 	return cho;
 }
 
+supermarket::~supermarket() {
+	ofstream fo; //fuk off data to Stock.txt
+	fo.open("Stock.txt");
+	//Designed by JYSolutions http://ojy.asuscomm.com/JYSolutions/ Copyright 2016. 
+	//By Using This Code, You had read and accepeted the End User Agreement.
+
+	if (fo.is_open()) {
+		fo << fixed << showpoint << setprecision(2);
+		//Save to txt
+		string line;
+		//First Line
+		fo << market_name << ":" << market_stock << ":" << money << ":" << endl;
+		int x = 0;
+		while (x < stock_no) {
+			fo << product[x].getName() << ":" << product[x].getQuantity() << ":" << product[x].getPrice() << ":" << product[x].getWeight() << ":" << product[x].getInfo();
+			if (x < stock_no - 1)
+				fo << ":" << endl;
+			x++;
+		}
+	}
+	else {
+		cout << "\n \\Enter Error Message Here \n";
+	}
+
+}

@@ -13,7 +13,8 @@ class supermarket{
 public:
 	// constructor
 	supermarket();
-
+	//destructor
+	~supermarket();
 	void item_menu();
 	void edit_item();
 	void place_order();	
