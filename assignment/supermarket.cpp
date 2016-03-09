@@ -21,7 +21,7 @@ supermarket::supermarket() {
 		int x = 0; //array need x 
 		try
 		{
-			//no plagrism citation: Ji Young,2016
+			
 			while (!fp.eof()) { //Stock array - read until EOF
 				getline(fp, tmp, '\n'); //eat newline
 				getline(fp, tmp, ':'); //itemname
@@ -52,7 +52,7 @@ supermarket::supermarket() {
 }
 
 
-void supermarket::place_order() //OK
+void supermarket::place_order() // place order in the menu 
 {
 	int order_arr[50], quan[50], c = 0;
 	float amt, total = 0;
@@ -89,7 +89,7 @@ void supermarket::place_order() //OK
 	getchar();
 }
 
-void supermarket::item_menu() // OK
+void supermarket::item_menu() // display all the item menu
 {	
 	system("cls");
 	cout << endl << endl << "\t\tItem MENU\n\n";
@@ -106,8 +106,8 @@ void supermarket::item_menu() // OK
 
 }
 
-// #chenggarnett #yolo
-void supermarket::edit_item() //ok
+
+void supermarket::edit_item() //edit all the item in the menu
 {
 	int num, n;
 	int newQua;
@@ -152,7 +152,7 @@ void supermarket::edit_item() //ok
 
 
 
-// #chenggarnett #yolo
+
 void supermarket::border(char c, int a)
 {
 	for (int i = 0; i < a; i++)
@@ -162,13 +162,13 @@ void supermarket::border(char c, int a)
 	space();
 }
 
-// #chenggarnett #yolo
+
 void supermarket::space()
 {
 	cout << endl;
 }
 
-// #chenggarnett #yolo
+
 int supermarket::checkValidation(int cho, int a, int b)
 {	
 	
@@ -182,10 +182,9 @@ int supermarket::checkValidation(int cho, int a, int b)
 }
 
 supermarket::~supermarket() {
-	ofstream fo; //fuk off data to Stock.txt
+	ofstream fo; //transfer to Stock.txt
 	fo.open("Stock.txt");
-	//Designed by JYSolutions http://ojy.asuscomm.com/JYSolutions/ Copyright 2016. 
-	//By Using This Code, You had read and accepeted the End User Agreement.
+	
 
 	if (fo.is_open()) {
 		fo << fixed << showpoint << setprecision(2);

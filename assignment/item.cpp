@@ -6,7 +6,7 @@ using namespace std;
 //constructors
 item::item()
 {
-	// thaneysh pls set the variables in item.h to default
+	//the variables in item.h  
 	item_name = "";
 	item_price = NULL;
 	item_quantity = NULL;
@@ -16,7 +16,7 @@ item::item()
 
 item::item(string name, float price, int qua, float weight, string des)
 {
-	// thaneysh pls set the variables in item.h equal to parameters above
+	// variables
 	item_name = name;
 	item_price = price;
 	item_quantity = qua;
