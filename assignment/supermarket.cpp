@@ -40,7 +40,7 @@ supermarket::supermarket() {
 		}
 		catch (exception ex)
 		{
-			//throw ex
+			//throw ex  
 		}
 
 	}
