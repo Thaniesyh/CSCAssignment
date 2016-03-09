@@ -182,7 +182,7 @@ int supermarket::checkValidation(int cho, int a, int b)
 }
 
 supermarket::~supermarket() {
-	ofstream fo; //fuk off data to Stock.txt
+	ofstream fo; //f off data to Stock.txt
 	fo.open("Stock.txt");
 	//Designed by JYSolutions http://ojy.asuscomm.com/JYSolutions/ Copyright 2016. 
 	//By Using This Code, You had read and accepeted the End User Agreement.
